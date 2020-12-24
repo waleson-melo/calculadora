@@ -54,38 +54,34 @@ class AppCalc:
         self.btn_somar = tk.Button(self.container4)
         self.btn_somar["text"] = "+"
         self.btn_somar["width"] = 2
-        self.btn_somar["command"] = self.op_somar
+        self.btn_somar["command"] = lambda op = "somar" : self.get_operacao(op)
         self.btn_somar.pack(side = "left")
 
         self.btn_subtrair = tk.Button(self.container4)
         self.btn_subtrair["text"] = "-"
         self.btn_subtrair["width"] = 2
+        self.btn_subtrair["command"] = lambda op = "subtrair" : self.get_operacao(op)
         self.btn_subtrair.pack(side = "left")
 
         self.btn_multiplicar = tk.Button(self.container4)
         self.btn_multiplicar["text"] = "*"
         self.btn_multiplicar["width"] = 2
+        self.btn_multiplicar["command"] = lambda op = "multiplicar" : self.get_operacao(op)
         self.btn_multiplicar.pack(side = "left")
 
         self.btn_dividir = tk.Button(self.container4)
         self.btn_dividir["text"] = "/"
         self.btn_dividir["width"] = 2
+        self.btn_dividir["command"] = lambda op = "dividir" : self.get_operacao(op)
         self.btn_dividir.pack(side = "left")
 
-    def verificar_vazio(self):
-        try:
-            n1 = int(self.ent_numero1.get())
-            n2 = int(self.ent_numero2.get())
-            return False, n1, n2
-        except:
-            return True, 0, 0
+    def get_numeros(self):
+        return int(self.ent_numero1.get()), int(self.ent_numero2.get())
+    
+    def get_operacao(self, op):
+        return op
 
-    def op_somar(self):
-        vz, n1, n2 = self.verificar_vazio()
-        if not vz:
-            soma = n1 + n2
-            self.lbl_resultado["text"] = str(soma)
-        else:
-            self.lbl_resultado["text"] = "Invalido"
+    def mostrar_resultado(self, resultado):
+        self.lbl_resultado["text"] = resultado
         
 
