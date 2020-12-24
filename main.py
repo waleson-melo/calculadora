@@ -1,8 +1,6 @@
-import tkinter as tk
-import view.view_calc as vc
+import controller_calc as cc
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    appCalc = vc.AppCalc(root)
-    root.mainloop()
+    c = cc.CalcController()
+    c.start()
