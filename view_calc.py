@@ -5,6 +5,7 @@ class ViewCalc:
         self.controller = controller
         # Criando a janela
         root.title("Calculadora")
+        root.resizable(False, False)
 
         # Container
         self.container1 = tk.Frame(root)
