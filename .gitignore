@@ -1,2 +1,6 @@
 
 *.pyc
+
+calculadora
+.vscode
+__pycache__
